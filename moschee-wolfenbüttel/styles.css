@@ -1,0 +1,288 @@
+/* ========== GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f7f8;
+  color: #333333;
+  padding-top: 70px; /* Platz für fixierte Navigation */
+}
+
+/* ========== NAVIGATION / HEADER ========== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #004c56;
+  z-index: 1000;
+}
+
+.main-nav {
+  background-color: #004c56;
+  color: #ffffff;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 16px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-area img {
+  width: 60px;
+  height: 60px;
+}
+
+.logo-area span {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  border-bottom: 3px solid #ffffff;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ========== HERO MIT WEICHGEZEICHNETEM HINTERGRUND ========== */
+
+.hero-background {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Zwei halbierte, unscharfe Hintergründe */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(4px);
+  transform: scale(1.05); /* leicht vergrößern, damit keine Kanten durch den Blur sichtbar werden */
+  z-index: 1;
+}
+
+.hero-bg-left {
+  left: 0;
+  background-image: url("Cami-Alt.jpg");
+}
+
+.hero-bg-right {
+  right: 0;
+  background-image: url("mosque-front.jpg.png");
+}
+
+/* leichte Einfärbung über dem Hintergrund für besseren Kontrast */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: #c2cff340;
+  z-index: 2;
+}
+
+/* Inhalt vor dem Hintergrund */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* Wrapper, der oben türkis und unten weiß ist */
+.info-wrapper {
+  width: 800px;
+  max-width: 90%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Oberer Teil: türkis (wie Broschüre) */
+.info-header {
+  background-color: #96d0df;
+  color: #ffffff;
+  padding: 18px 0px 18px;
+  text-align: center;
+}
+
+.info-header h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #000000;
+}
+
+.info-header h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.info-header h1 span {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Unterer Teil: weißer Hintergrund, schwarze Schrift */
+.info-body {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 20px 26px 22px;
+  text-align: center;
+}
+
+.info-body p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.hero-signature {
+  font-weight: 600;
+}
+
+/* ========== FOOTER ========== */
+
+.site-footer {
+  background-color: #005f6b;
+  color: #ffffff;
+  padding: 16px 16px 24px;
+  margin-top: 0px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.footer-logo img {
+  width: 90px;
+  height: auto;
+}
+
+.footer-info {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* ========== RESPONSIVE / MOBILE ========== */
+
+@media (max-width: 900px) {
+  body {
+    padding-top: 80px;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Hero soll auf Handy praktisch gleich aussehen */
+  .hero-background {
+    min-height: 90vh; /* gleiche Höhe wie Desktop */
+  }
+
+  .info-wrapper {
+    width: 95%;       /* nutzt fast die ganze Breite */
+  }
+
+  .info-header h1 {
+    font-size: 1.6rem;   /* etwas kleiner, damit nicht umbricht */
+  }
+
+  .info-header h1 span {
+    font-size: 1.8rem;
+  }
+
+  .info-header h2 {
+    font-size: 1rem;
+  }
+
+  .info-body p {
+    font-size: 0.95rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

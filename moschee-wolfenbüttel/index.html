@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yeşil Cami Wolfenbüttel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- FIXIERTE LEISTE OBEN -->
+  <header class="site-header">
+    <nav class="main-nav">
+      <div class="nav-container">
+
+        <div class="logo-area">
+          <img src="Logo-ditib.png" alt="DITIB Logo">
+          <span>Yeşil Cami Wolfenbüttel</span>
+        </div>
+
+        <button class="nav-toggle" id="navToggle">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#" class="active">Startseite</a></li>
+          <li><a href="#">Vorstand</a></li>
+          <li><a href="#">Ramazan Kalender</a></li>
+          <li><a href="#">Bilder</a></li>
+          <li><a href="#">Kontakt</a></li>
+          <li><a href="#">Yeşil Cami Wolfenbüttel</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO-BEREICH: HINTERGRUND = ZWEI BILDER (WEICH) + TEXT DAVOR -->
+  <main>
+    <section class="hero-background">
+      <!-- Verschwommene Hintergrundhälften -->
+      <div class="hero-bg hero-bg-left"></div>
+      <div class="hero-bg hero-bg-right"></div>
+      <div class="hero-overlay"></div>
+
+      <!-- Textbox vorne -->
+      <div class="hero-content">
+        <div class="info-wrapper">
+          <!-- Oberer Bereich: türkis, wie in der Broschüre -->
+          <div class="info-header">
+            <h2>Zorluklardan Doğan Yeni Bir Başlangıç</h2>
+            <h1>
+              Cami ve Külliye Projemiz<br>
+              <span>WOLFENBÜTTEL</span>
+            </h1>
+          </div>
+
+          <!-- Unterer Bereich: weißer Hintergrund, schwarze Schrift -->
+          <div class="info-body">
+            <p>
+              Wolfenbüttel'de inşa edeceğimiz Cami ve Külliye projemizi
+              sizlerin desteği ile hayata geçiriyoruz. Amacımız, tevhid ve
+              vahdetin yaşandığı, ibadetin huzur bulduğu, ilim ve irfanın
+              geliştiği; gençlerimiz ve ailelerimiz için güvenli bir buluşma
+              merkezi oluşturmaktır. Gelecek nesillere iman, kardeşlik 
+              ve ilim mirası sunacak kalıcı bir sadaka-i cariye olacaktır.
+            </p>
+
+            <p class="hero-signature">
+              Türkisch-Islamische Gemeinde zu Wolfenbüttel e.V.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER MIT KONTAKT / IMPRESSUM -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="Logo-ditib.png" alt="DITIB Logo">
+      </div>
+
+      <div class="footer-info">
+        <p class="footer-title">Türkisch Islamische Gemeinde zu Wolfenbüttel e.V.</p>
+        <p>Adresse: Schützenstr. 37, 38304 Wolfenbüttel</p>
+        <p>Telefon: +49 157 55357246</p>
+        <p>E-Mail: info@ditib-wf.de / 1658.vorstand@ditib-nds.de</p>
+        <p class="footer-links">
+          <a href="#">Impressum</a> ·
+          <a href="#">Datenschutz</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
