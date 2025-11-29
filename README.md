@@ -1,1 +1,1 @@
-# Moschee-Wolfenb-ttel
+# Moschee-Wolfenbüttel
