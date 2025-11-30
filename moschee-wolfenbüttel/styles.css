@@ -12,6 +12,15 @@ body {
   padding-top: 70px; /* Platz für fixierte Navigation */
 }
 
+/* Für Unterseiten (Vorstand, Impressum, Datenschutz):
+   Body soll ganzen Viewport füllen, damit Footer unten "klebt" */
+body.page-body {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* ========== NAVIGATION / HEADER ========== */
 
 .site-header {
@@ -36,6 +45,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .logo-area {
@@ -80,7 +90,27 @@ body {
   cursor: pointer;
 }
 
-/* ========== HERO MIT WEICHGEZEICHNETEM HINTERGRUND ========== */
+/* Sprach-Auswahl */
+.language-switcher {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.flag {
+  width: 26px;
+  height: 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  transition: transform 0.2s;
+}
+
+.flag:hover {
+  transform: scale(1.15);
+}
+
+/* ========== HERO MIT WEICHGEZEICHNETEM HINTERGRUND (NUR STARTSEITE) ========== */
 
 .hero-background {
   position: relative;
@@ -92,7 +122,6 @@ body {
   overflow: hidden;
 }
 
-/* Zwei halbierte, unscharfe Hintergründe */
 .hero-bg {
   position: absolute;
   top: 0;
@@ -102,7 +131,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   filter: blur(4px);
-  transform: scale(1.05); /* leicht vergrößern, damit keine Kanten durch den Blur sichtbar werden */
+  transform: scale(1.05);
   z-index: 1;
 }
 
@@ -116,7 +145,6 @@ body {
   background-image: url("mosque-front.jpg.png");
 }
 
-/* leichte Einfärbung über dem Hintergrund für besseren Kontrast */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -124,7 +152,6 @@ body {
   z-index: 2;
 }
 
-/* Inhalt vor dem Hintergrund */
 .hero-content {
   position: relative;
   z-index: 3;
@@ -134,7 +161,6 @@ body {
   padding: 24px 16px;
 }
 
-/* Wrapper, der oben türkis und unten weiß ist */
 .info-wrapper {
   width: 800px;
   max-width: 90%;
@@ -143,11 +169,10 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* Oberer Teil: türkis (wie Broschüre) */
 .info-header {
   background-color: #96d0df;
   color: #ffffff;
-  padding: 18px 0px 18px;
+  padding: 18px 0 18px;
   text-align: center;
 }
 
@@ -168,7 +193,6 @@ body {
   font-weight: 700;
 }
 
-/* Unterer Teil: weißer Hintergrund, schwarze Schrift */
 .info-body {
   background-color: #ffffff;
   color: #333333;
@@ -186,13 +210,79 @@ body {
   font-weight: 600;
 }
 
+/* ========== GENERISCHE SEITEN (VORSTAND, IMPRESSUM, DATENSCHUTZ) ========== */
+
+.page-main {
+  padding: 100px 16px 40px;
+  flex: 1;        /* Wichtig für Sticky Footer auf Unterseiten */
+}
+
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 24px 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.page-container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.page-container h2 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.page-container p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+/* ========== VORSTANDSKARTEN (OHNE BILDER) ========== */
+
+.vorstand-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.vorstand-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+}
+
+.vorstand-card:hover {
+  transform: scale(1.03);
+}
+
+.vorstand-card h3 {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.vorstand-card p {
+  font-size: 0.9rem;
+  color: #004c56;
+}
+
 /* ========== FOOTER ========== */
 
 .site-footer {
   background-color: #005f6b;
   color: #ffffff;
   padding: 16px 16px 24px;
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .footer-inner {
@@ -256,17 +346,16 @@ body {
     display: block;
   }
 
-  /* Hero soll auf Handy praktisch gleich aussehen */
   .hero-background {
-    min-height: 90vh; /* gleiche Höhe wie Desktop */
+    min-height: 90vh;
   }
 
   .info-wrapper {
-    width: 95%;       /* nutzt fast die ganze Breite */
+    width: 95%;
   }
 
   .info-header h1 {
-    font-size: 1.6rem;   /* etwas kleiner, damit nicht umbricht */
+    font-size: 1.6rem;
   }
 
   .info-header h1 span {
@@ -281,8 +370,16 @@ body {
     font-size: 0.95rem;
   }
 
+  .page-main {
+    padding-top: 100px;
+  }
+
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .vorstand-grid {
+    grid-template-columns: 1fr;
   }
 }

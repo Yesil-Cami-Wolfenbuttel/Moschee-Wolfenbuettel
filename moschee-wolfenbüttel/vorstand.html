@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-lang="title">Yeşil Cami Wolfenbüttel</title>
+  <title data-lang="title">Vorstand – Yeşil Cami Wolfenbüttel</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body class="page-body">
 
   <!-- HEADER -->
   <header class="site-header">
@@ -29,73 +29,51 @@
         <button class="nav-toggle" id="navToggle">☰</button>
 
         <ul class="nav-links" id="navLinks">
-          <li><a href="index.html" class="active" data-lang="nav-start">Startseite</a></li>
-          <li><a href="vorstand.html" data-lang="nav-vorstand">Vorstand</a></li>
+          <li><a href="index.html" data-lang="nav-start">Startseite</a></li>
+          <li><a class="active" href="vorstand.html" data-lang="nav-vorstand">Vorstand</a></li>
           <li><a href="#" data-lang="nav-ramazan">Ramazan Kalender</a></li>
           <li><a href="#" data-lang="nav-bilder">Bilder</a></li>
           <li><a href="#" data-lang="nav-kontakt">Kontakt</a></li>
         </ul>
 
-        <!-- Sprach-Auswahl -->
         <div class="language-switcher">
           <img src="flag-de.png" alt="Deutsch" class="flag" data-lang-btn="de">
           <img src="flag-tr.png" alt="Türkçe" class="flag" data-lang-btn="tr">
           <img src="flag-ar.png" alt="العربية" class="flag" data-lang-btn="ar">
         </div>
-
       </div>
     </nav>
   </header>
 
-  <!-- HERO MIT DEN ZWEI MOSCHEE-BILDERN -->
-  <main>
-    <section class="hero-background">
-      <div class="hero-bg hero-bg-left"></div>
-      <div class="hero-bg hero-bg-right"></div>
-      <div class="hero-overlay"></div>
+  <!-- CONTENT -->
+  <main class="page-main">
+    <section class="page-container">
 
-      <div class="hero-content">
-        <div class="info-wrapper">
-          <div class="info-header">
-            <h2 data-lang="hero-subtitle">
-              Zorluklardan Doğan Yeni Bir Başlangıç
-            </h2>
-            <h1 data-lang="hero-title">
-              Cami ve Külliye Projemiz<br>
-              <span>WOLFENBÜTTEL</span>
-            </h1>
-          </div>
+      <h1>Vorstand / Yönetim Kurulu</h1>
 
-          <div class="info-body">
-            <p data-lang="hero-text">
-              Wolfenbüttel'de inşa edeceğimiz Cami ve Külliye projemizi sizlerin desteği ile hayata
-              geçiriyoruz. Amacımız, tevhid ve vahdetin yaşandığı, ibadetin huzur bulduğu, ilim ve irfanın
-              geliştiği; gençlerimiz ve ailelerimiz için güvenli bir buluşma merkezi oluşturmaktır. Gelecek
-              nesillere iman, kardeşlik ve ilim mirası sunacak kalıcı bir sadaka-i cariye olacaktır.
-            </p>
-
-            <p class="hero-signature" data-lang="hero-signature">
-              Türkisch-Islamische Gemeinde zu Wolfenbüttel e.V.
-            </p>
-          </div>
-
-        </div>
+      <div class="vorstand-grid">
+        <div class="vorstand-card"><h3>Abdulvahap User</h3><p data-lang="role-1">1. Vorsitzender</p></div>
+        <div class="vorstand-card"><h3>Gülten Manavbaşı</h3><p data-lang="role-2f">2. Vorsitzende</p></div>
+        <div class="vorstand-card"><h3>M.Mustafa User</h3><p data-lang="role-2m">2. Vorsitzender</p></div>
+        <div class="vorstand-card"><h3>Ali Çelik</h3><p data-lang="role-buchhalter">Buchhalter</p></div>
+        <div class="vorstand-card"><h3>Mehmet Arslanoğlu</h3><p data-lang="role-sekretaer">Sekretär</p></div>
+        <div class="vorstand-card"><h3>Fatih Köse</h3><p data-lang="role-beisitzer">Beisitzer</p></div>
+        <div class="vorstand-card"><h3>Sefa Yalçın</h3><p data-lang="role-frau">Frauenbeauftragte</p></div>
+        <div class="vorstand-card"><h3>Selma Ister</h3><p data-lang="role-eltern">Elternvertreter</p></div>
+        <div class="vorstand-card"><h3>Cihat Suel</h3><p data-lang="role-jugend">Jugendleiter</p></div>
       </div>
+
     </section>
   </main>
 
-  <!-- FOOTER (statisch, keine data-lang-Attribute) -->
+  <!-- FOOTER (statisch) -->
   <footer class="site-footer">
     <div class="footer-inner">
-
       <div class="footer-logo">
         <img src="Logo-ditib.png" alt="DITIB Logo">
       </div>
-
       <div class="footer-info">
-        <p class="footer-title">
-          Türkisch Islamische Gemeinde zu Wolfenbüttel e.V.
-        </p>
+        <p class="footer-title">Türkisch Islamische Gemeinde zu Wolfenbüttel e.V.</p>
         <p>Adresse: Schützenstr. 37, 38304 Wolfenbüttel</p>
         <p>Telefon: +49 157 55357246</p>
         <p>E-Mail: info@ditib-wf.de / 1658.vorstand@ditib-nds.de</p>
@@ -104,7 +82,6 @@
           <a href="datenschutz.html">Datenschutz</a>
         </p>
       </div>
-
     </div>
   </footer>
 
