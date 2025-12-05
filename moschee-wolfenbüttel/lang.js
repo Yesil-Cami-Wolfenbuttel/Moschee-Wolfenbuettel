@@ -9,6 +9,7 @@ const translations = {
     "nav-ramazan": "Ramazan Kalender",
     "nav-bilder": "Bilder",
     "nav-kontakt": "Kontakt",
+    "nav-mitglied": "Mitglied werden",
 
     "hero-subtitle": "Aus Schwierigkeiten entsteht ein neuer Anfang",
     "hero-title": "Moschee- und Külliye-Projekt<br><span>WOLFENBÜTTEL</span>",
@@ -26,6 +27,7 @@ const translations = {
     "nav-ramazan": "Ramazan Takvimi",
     "nav-bilder": "Fotoğraf Galerisi",
     "nav-kontakt": "İletişim",
+    "nav-mitglied": "Üye Ol",
 
     "hero-subtitle": "Zorluklardan Doğan Yeni Bir Başlangıç",
     "hero-title": "Cami ve Külliye Projemiz<br><span>WOLFENBÜTTEL</span>",
@@ -43,6 +45,7 @@ const translations = {
     "nav-ramazan": "تقويم رمضان",
     "nav-bilder": "الصور",
     "nav-kontakt": "اتصال",
+    "nav-mitglied": "الانضمام كعضو",
 
     "hero-subtitle": "بداية جديدة تولد من الصعوبات",
     "hero-title":

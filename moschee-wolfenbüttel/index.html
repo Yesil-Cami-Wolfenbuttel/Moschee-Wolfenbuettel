@@ -22,18 +22,28 @@
       <div class="nav-container">
 
         <div class="logo-area">
-          <img src="Logo-ditib.png" alt="DITIB Logo">
-          <span data-lang="site-name">Yeşil Cami Wolfenbüttel</span>
-        </div>
+  <a href="index.html" class="logo-link">
+    <img src="Logo-ditib.png" alt="DITIB Logo">
+  </a>
+  <span class="site-title">Yeşil Cami Wolfenbüttel</span>
+</div>
+
+
 
         <button class="nav-toggle" id="navToggle">☰</button>
 
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="active" data-lang="nav-start">Startseite</a></li>
           <li><a href="vorstand.html" data-lang="nav-vorstand">Vorstand</a></li>
-          <li><a href="#" data-lang="nav-ramazan">Ramazan Kalender</a></li>
-          <li><a href="#" data-lang="nav-bilder">Bilder</a></li>
-          <li><a href="#" data-lang="nav-kontakt">Kontakt</a></li>
+          <li>
+  <a href="https://islam-wf.de" target="_blank" rel="noopener noreferrer">
+    Ramazan Kalender
+  </a>
+</li>
+
+          <li><a href="bilder.html">Bilder</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="mitglied-werden.html" data-lang="nav-mitglied">Mitglied werden</a></li>
         </ul>
 
         <!-- Sprach-Auswahl -->
@@ -85,11 +95,13 @@
   </main>
 
   <!-- FOOTER (statisch, keine data-lang-Attribute) -->
-  <footer class="site-footer">
-    <div class="footer-inner">
+<footer class="site-footer">
+  <div class="footer-inner">
 
+    <!-- LINKE SEITE: Logo + Infos -->
+    <div class="footer-left">
       <div class="footer-logo">
-        <img src="Logo-ditib.png" alt="DITIB Logo">
+        <img src="logo-ditib.png" alt="DITIB Logo">
       </div>
 
       <div class="footer-info">
@@ -104,9 +116,22 @@
           <a href="datenschutz.html">Datenschutz</a>
         </p>
       </div>
-
     </div>
-  </footer>
+
+    <!-- RECHTE SEITE: PayPal-Button -->
+    <div class="footer-paypal">
+      <a
+        href="https://www.paypal.com/donate?token=o9qGjzrIa50_JhUAZTOK4HYwvmt2HZtqtCwZQoEt89LV0KT73HcM4fFGC4McJ0HuXYOyJUSFVAhmB2B2"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="img/paypal-button.png" alt="Spenden" class="paypal-button-img">
+      </a>
+    </div>
+
+  </div>
+</footer>
+
 
   <script src="script.js"></script>
   <script src="lang.js"></script>

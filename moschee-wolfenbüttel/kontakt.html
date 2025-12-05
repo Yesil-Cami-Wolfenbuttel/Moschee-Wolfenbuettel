@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – Yeşil Cami Wolfenbüttel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="page-body">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <nav class="main-nav">
+      <div class="nav-container">
+
+        <!-- Logo: nur Bild klickbar -->
+        <div class="logo-area">
+          <a href="index.html" class="logo-link">
+            <img src="Logo-ditib.png" alt="DITIB Logo">
+          </a>
+          <span class="site-title">Yeşil Cami Wolfenbüttel</span>
+        </div>
+
+        <button class="nav-toggle" id="navToggle">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="vorstand.html">Vorstand</a></li>
+          <li>
+  <a href="https://islam-wf.de" target="_blank" rel="noopener noreferrer">
+    Ramazan Kalender
+  </a>
+</li>
+
+          <li><a href="bilder.html">Bilder</a></li>
+          <li><a href="kontakt.html" class="active">Kontakt</a></li>
+          <li><a href="mitglied-werden.html">Mitglied werden</a></li>
+        </ul>
+
+        <div class="language-switcher">
+          <img src="flag-de.png" alt="Deutsch" class="flag" data-lang-btn="de">
+          <img src="flag-tr.png" alt="Türkçe" class="flag" data-lang-btn="tr">
+          <img src="flag-ar.png" alt="العربية" class="flag" data-lang-btn="ar">
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- INHALT -->
+  <main class="page-main">
+    <section class="page-container contact-section">
+      <h1>Kontakt & Social Media</h1>
+      <p>
+        Hier findest du die wichtigsten Kontaktmöglichkeiten zu unserer Gemeinde
+        und unserer Jugend. Scanne einfach die QR-Codes oder nutze die
+        Kontaktdaten und das Kontaktformular weiter unten.
+      </p>
+
+      <!-- QR-CODES JUGEND -->
+      <h2>DITIB Jugend – Social Media</h2>
+
+      <div class="qr-grid">
+
+        <!-- Hier bitte später deine echten QR-Bilder eintragen -->
+        <div class="qr-card">
+          <h3>WhatsApp – Jugend</h3>
+          <img src="Bilder/qr-jugend-whatsapp.png" alt="WhatsApp Jugend">
+          <p class="qr-handle">Gruppe: Sohbet Wolfenbüttel</p>
+        </div>
+
+        <div class="qr-card">
+          <h3>Instagram – Jugend</h3>
+          <img src="Bilder/qr-jugend-instagram.png" alt="Instagram Jugend">
+          <p class="qr-handle">@ditibwfgenclik</p>
+        </div>
+
+        <div class="qr-card">
+          <h3>TikTok – Jugend</h3>
+          <img src="Bilder/qr-jugend-tiktok.png" alt="TikTok Jugend">
+          <p class="qr-handle">@ditibwfgenclik</p>
+        </div>
+
+        <!-- Platzhalter für zukünftige QR Codes -->
+        <div class="qr-card qr-placeholder">
+          <h3>Instagram – Moschee</h3>
+          <p>QR-Code wird in Kürze hinzugefügt.</p>
+        </div>
+
+        <div class="qr-card qr-placeholder">
+          <h3>Instagram – Mädchengemeinde</h3>
+          <p>QR-Code wird in Kürze hinzugefügt.</p>
+        </div>
+
+      </div>
+
+      <!-- KONTAKTDATEN -->
+      <h2>Gemeindekontakt</h2>
+
+      <div class="contact-info-box">
+        <p><strong>Türkisch Islamische Gemeinde zu Wolfenbüttel e.V.</strong></p>
+        <p>Adresse: Schützenstr. 37, 38304 Wolfenbüttel</p>
+        <p>Telefon: +49 157 55357246</p>
+        <p>E-Mail: info@ditib-wf.de / 1658.vorstand@ditib-nds.de</p>
+      </div>
+
+      <!-- KONTAKTFORMULAR -->
+      <h2>Kontaktformular</h2>
+      <p>
+        Du kannst uns auch direkt eine Nachricht über das folgende Formular
+        vorbereiten. Es öffnet sich anschließend dein E-Mail-Programm mit allen
+        Angaben vorausgefüllt.
+      </p>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-group">
+          <label for="cf-name">Name *</label>
+          <input type="text" id="cf-name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cf-email">E-Mail-Adresse *</label>
+          <input type="email" id="cf-email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cf-subject">Betreff *</label>
+          <input type="text" id="cf-subject" name="subject" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cf-message">Nachricht *</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+
+        <div class="form-navigation">
+          <button type="submit" class="btn-submit">Nachricht per E-Mail vorbereiten</button>
+        </div>
+
+        <p class="small-text">
+          Hinweis: Es wird eine E-Mail an <strong>info@ditib-wf.de</strong> vorbereitet.
+          Bitte prüfe die Angaben und sende die E-Mail anschließend in deinem
+          E-Mail-Programm ab.
+        </p>
+      </form>
+
+      <!-- GOOGLE MAPS -->
+      <h2>Anfahrt</h2>
+      <p>Unsere Moschee befindet sich in der Nähe des Stadtzentrums von Wolfenbüttel.</p>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps?q=Sch%C3%BCtzenstr.+37,+38304+Wolfenb%C3%BCttel&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="Logo-ditib.png" alt="DITIB Logo">
+      </div>
+      <div class="footer-info">
+        <p class="footer-title">Türkisch Islamische Gemeinde zu Wolfenbüttel e.V.</p>
+        <p>Adresse: Schützenstr. 37, 38304 Wolfenbüttel</p>
+        <p>Telefon: +49 157 55357246</p>
+        <p>E-Mail: info@ditib-wf.de / 1658.vorstand@ditib-nds.de</p>
+        <p class="footer-links">
+          <a href="impressum.html">Impressum</a> ·
+          <a href="datenschutz.html">Datenschutz</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="lang.js"></script>
+</body>
+</html>
