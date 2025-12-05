@@ -1,0 +1,941 @@
+/* ========== GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f7f8;
+  color: #333333;
+  padding-top: 70px; /* Platz für fixierte Navigation */
+}
+
+/* Für Unterseiten (Vorstand, Impressum, Datenschutz):
+   Body soll ganzen Viewport füllen, damit Footer unten "klebt" */
+body.page-body {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ========== NAVIGATION / HEADER ========== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #004c56;
+  z-index: 1000;
+}
+
+.main-nav {
+  background-color: #004c56;
+  color: #ffffff;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 16px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-area img {
+  width: 60px;
+  height: 60px;
+}
+
+.logo-area span {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  border-bottom: 3px solid #ffffff;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Sprach-Auswahl */
+.language-switcher {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.flag {
+  width: 26px;
+  height: 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  transition: transform 0.2s;
+}
+
+.flag:hover {
+  transform: scale(1.15);
+}
+
+/* ========== HERO MIT WEICHGEZEICHNETEM HINTERGRUND (NUR STARTSEITE) ========== */
+
+.hero-background {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(4px);
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.hero-bg-left {
+  left: 0;
+  background-image: url("Cami-Alt.jpg");
+}
+
+.hero-bg-right {
+  right: 0;
+  background-image: url("mosque-front.jpg.png");
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: #c2cff340;
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.info-wrapper {
+  width: 800px;
+  max-width: 90%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.info-header {
+  background-color: #96d0df;
+  color: #ffffff;
+  padding: 18px 0 18px;
+  text-align: center;
+}
+
+.info-header h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #000000;
+}
+
+.info-header h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.info-header h1 span {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.info-body {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 20px 26px 22px;
+  text-align: center;
+}
+
+.info-body p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.hero-signature {
+  font-weight: 600;
+}
+
+/* ========== GENERISCHE SEITEN (VORSTAND, IMPRESSUM, DATENSCHUTZ) ========== */
+
+.page-main {
+  padding: 100px 16px 40px;
+  flex: 1;        /* Wichtig für Sticky Footer auf Unterseiten */
+}
+
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 24px 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.page-container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.page-container h2 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.page-container p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+/* ========== VORSTANDSKARTEN (OHNE BILDER) ========== */
+
+.vorstand-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.vorstand-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+}
+
+.vorstand-card:hover {
+  transform: scale(1.03);
+}
+
+.vorstand-card h3 {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.vorstand-card p {
+  font-size: 0.9rem;
+  color: #004c56;
+}
+
+/* ========== FOOTER ========== */
+
+.site-footer {
+  background-color: #005f6b;
+  color: #ffffff;
+  padding: 16px 16px 24px;
+  margin-top: 0;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.footer-logo img {
+  width: 90px;
+  height: auto;
+}
+
+.footer-info {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* ========== RESPONSIVE / MOBILE ========== */
+
+@media (max-width: 900px) {
+  body {
+    padding-top: 80px;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero-background {
+    min-height: 90vh;
+  }
+
+  .info-wrapper {
+    width: 95%;
+  }
+
+  .info-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .info-header h1 span {
+    font-size: 1.8rem;
+  }
+
+  .info-header h2 {
+    font-size: 1rem;
+  }
+
+  .info-body p {
+    font-size: 0.95rem;
+  }
+
+  .page-main {
+    padding-top: 100px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vorstand-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== FORMULARE: MITGLIED WERDEN ========== */
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #004c56;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  font-size: 0.9rem;
+}
+
+.small-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.btn-next,
+.btn-prev,
+.btn-submit,
+.btn-secondary {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn-next,
+.btn-submit {
+  background-color: #004c56;
+  color: #ffffff;
+}
+
+.btn-prev,
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #333333;
+}
+
+.btn-next:hover,
+.btn-submit:hover {
+  background-color: #006773;
+}
+
+.btn-prev:hover,
+.btn-secondary:hover {
+  background-color: #d0d0d0;
+}
+
+/* Signaturfeld */
+.signature-wrapper {
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+#signaturePad {
+  width: 100%;
+  height: 180px;
+  display: block;
+}
+
+/* ========== Fehlermarkierung für Formularfelder ========== */
+
+.input-error {
+  border-color: #d00000 !important;
+  background-color: #ffecec;
+}
+
+.group-error {
+  outline: 2px solid #d00000;
+  background-color: #fff5f5;
+}
+/* ========== BILDERGALERIE ========== */
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Jedes Bild bekommt die gleiche Breite und wird mittig angezeigt */
+.gallery-item {
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  max-width: 900px;      /* maximale Breite der Bilder */
+  aspect-ratio: 16 / 9;  /* alle Bilder im gleichen Seitenverhältnis */
+  object-fit: cover;     /* Bild wird sauber zugeschnitten */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   LIGHTBOX (Bild vergrößern)
+=========================== */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+  background: white;
+
+  /* für Zoom: */
+  touch-action: none;
+  transition: transform 0.1s ease-out;
+}
+
+/* ===========================
+   LIGHTBOX NAVIGATION
+=========================== */
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  font-size: 40px;
+  font-weight: bold;
+  color: #333;
+  padding: 5px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Pfeil links */
+#lightbox-prev {
+  left: 30px;
+}
+
+/* Pfeil rechts */
+#lightbox-next {
+  right: 30px;
+}
+
+/* ========== KONTAKT & QR-CODES ========== */
+
+.contact-section h1 {
+  margin-bottom: 10px;
+}
+
+.contact-section h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.qr-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.qr-card {
+  flex: 1 1 220px;
+  max-width: 260px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.qr-card h3 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.qr-card img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto 8px;
+  border-radius: 8px;
+}
+
+.qr-handle {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.qr-placeholder {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Kontaktbox */
+
+.contact-info-box {
+  margin-top: 10px;
+  padding: 15px 18px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem;
+}
+
+/* Google Maps */
+
+.map-container {
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+}
+
+/* ===== FOOTER LAYOUT: links Infos, rechts PayPal ===== */
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* links: Logo + Text nebeneinander */
+.footer-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* rechts: PayPal-Button */
+.footer-paypal {
+  display: flex;
+  align-items: flex-start; /* <-- Button nach oben ausrichten */
+  justify-content: flex-end;
+}
+
+
+/* Bild-Button selbst */
+.paypal-button-img {
+  height: 200px;
+  width: auto;
+  cursor: pointer;
+}
+
+.paypal-button-img:hover {
+  opacity: 0.9;
+}
+
+/* MOBILE: untereinander & zentriert */
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-paypal {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .paypal-button-img {
+    height: 70px;
+  }
+}
+
+/* ===========================
+   SPENDEN-SEITE – GLOBALER BACKGROUND
+   =========================== */
+
+/* Body-Klasse ersetzt page-body */
+.spenden-body {
+    background: none !important;
+}
+
+/* Vollflächiger Hintergrund wie Startseite */
+.spenden-body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("Drohne-Moschee.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) blur(4px);
+    transform: scale(1.05);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Petrol-Farbfilter – wie Startseite */
+.spenden-body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: #046b7840;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+
+/* ===========================
+   SPENDEN-INHALT
+   =========================== */
+
+/* kein extra Hero mehr – der Hintergrund kommt über die Body-Pseudoelemente */
+.spenden-main {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Weiße Spendenbox */
+.spenden-main .donation-content {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 28px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+    z-index: 10;
+}
+
+.spenden-main .donation-content h1 {
+    margin-bottom: 10px;
+}
+
+.donation-lead {
+    margin-bottom: 20px;
+    font-size: 0.98rem;
+}
+
+.donation-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
+.donation-contact-text {
+    font-size: 0.9rem;
+}
+
+.donation-phone {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #c62828;
+}
+
+.donation-box {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: #f5fbfc;
+    border: 1px solid #d1e7ea;
+}
+
+.donation-line {
+    margin: 0 0 4px 0;
+}
+
+.donation-line.ar {
+    font-size: 1.05rem;
+}
+
+.donation-iban-label {
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.donation-iban-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #c62828;
+    letter-spacing: 0.06em;
+}
+
+.donation-detail {
+    margin: 4px 0;
+    font-size: 0.95rem;
+}
+
+.donation-note {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+
+
+/* ===========================
+   UMRISSPLÄNE
+   =========================== */
+
+.floorplans-section {
+    width: 100%;
+    max-width: 900px;
+    background: #ffffff;
+    padding: 30px 28px;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+
+.floorplans-section h2 {
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.floorplan-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.floorplan-card {
+    flex: 1 1 260px;
+    max-width: 360px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 12px 14px 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    font-size: 0.92rem;
+}
+
+.floorplan-card h3 {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.floorplan-image-wrapper {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.floorplan-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: blur(2px) grayscale(35%);
+    transform: scale(1.02);
+    pointer-events: none;
+}
+
+
+
+/* ===========================
+   MOBILE
+   =========================== */
+
+@media (max-width: 768px) {
+
+    .spenden-main .donation-content {
+        padding: 22px 18px;
+    }
+
+    .donation-iban-value {
+        font-size: 1.1rem;
+    }
+
+    .floorplan-grid {
+        flex-direction: column;
+    }
+
+    .floorplan-card {
+        max-width: 100%;
+    }
+}
