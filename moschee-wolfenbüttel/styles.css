@@ -726,7 +726,7 @@ body.page-body {
   }
 
   .paypal-button-img {
-    height: 70px;
+    height: 300px;
   }
 }
 
@@ -939,3 +939,4 @@ body.page-body {
         max-width: 100%;
     }
 }
+
