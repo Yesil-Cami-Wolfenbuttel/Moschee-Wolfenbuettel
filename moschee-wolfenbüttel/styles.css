@@ -112,25 +112,47 @@ body.page-body {
 }
 
 
-/* Sprach-Auswahl */
-.language-switcher {
+/* Sprach-Auswahl (nur aktive Flagge sichtbar, Klick = Dropdown) */
+.language-switcher{
+  position: relative;
   display: flex;
-  gap: 6px;
   align-items: center;
+  gap: 6px;
 }
 
-.flag {
+/* Standard: nur aktive Flagge anzeigen */
+.language-switcher .flag{
   width: 26px;
   height: 18px;
   border-radius: 3px;
   cursor: pointer;
   border: 1px solid #ffffff;
   transition: transform 0.2s;
+  display: none;                /* wichtig */
 }
 
-.flag:hover {
-  transform: scale(1.15);
+.language-switcher .flag.is-active{
+  display: block;               /* nur die aktive */
 }
+
+.language-switcher .flag:hover{
+  transform: scale(1.12);
+}
+
+/* Wenn geöffnet: alle Flags anzeigen (als kleines „Popup“) */
+.language-switcher.is-open{
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 6px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.15);
+  backdrop-filter: blur(4px);
+}
+
+.language-switcher.is-open .flag{
+  display: block;               /* alle sichtbar */
+}
+
 
 /* ========== HERO MIT WEICHGEZEICHNETEM HINTERGRUND (NUR STARTSEITE) ========== */
 

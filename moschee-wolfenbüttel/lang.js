@@ -85,3 +85,64 @@ langButtons.forEach((btn) => {
 
 const savedLang = localStorage.getItem("lang") || "de";
 changeLanguage(savedLang);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const switcher = document.querySelector(".language-switcher");
+  if (!switcher) return;
+
+  const flags = Array.from(switcher.querySelectorAll(".flag[data-lang-btn]"));
+  if (!flags.length) return;
+
+  const getCurrentLang = () => {
+    return (
+      localStorage.getItem("lang") ||
+      localStorage.getItem("siteLang") ||
+      document.documentElement.lang ||
+      "de"
+    );
+  };
+
+  const setActive = (lang) => {
+    flags.forEach((f) => {
+      f.classList.toggle("is-active", f.getAttribute("data-lang-btn") === lang);
+    });
+  };
+
+  // initial aktiv setzen
+  setActive(getCurrentLang());
+
+  const close = () => switcher.classList.remove("is-open");
+  const toggle = () => switcher.classList.toggle("is-open");
+
+  // Klick-Verhalten:
+  // - Klick auf aktive Flagge: Dropdown öffnen/schließen
+  // - Klick auf andere Flagge: Sprache wechseln (dein lang.js Handler macht das), Dropdown schließen
+  switcher.addEventListener("click", (e) => {
+    const flag = e.target.closest(".flag[data-lang-btn]");
+    if (!flag) return;
+
+    const isActive = flag.classList.contains("is-active");
+
+    if (isActive) {
+      e.stopPropagation();
+      toggle();
+      return;
+    }
+
+    // andere Sprache gewählt -> Dropdown zu
+    close();
+
+    // nach dem Wechsel (dein bestehender Code) aktive Flagge neu setzen
+    setTimeout(() => setActive(getCurrentLang()), 0);
+  });
+
+  // Klick außerhalb schließt Dropdown
+  document.addEventListener("click", (e) => {
+    if (!switcher.contains(e.target)) close();
+  });
+
+  // ESC schließt Dropdown
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+});
