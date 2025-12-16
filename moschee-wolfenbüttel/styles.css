@@ -90,6 +90,28 @@ body.page-body {
   cursor: pointer;
 }
 
+/* Logo + Titel Bereich */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Vertikale Trennlinie */
+.logo-divider {
+  width: 1.0px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mobile etwas kleiner */
+@media (max-width: 768px) {
+  .logo-divider {
+    height: 44px;
+  }
+}
+
+
 /* Sprach-Auswahl */
 .language-switcher {
   display: flex;
@@ -317,6 +339,31 @@ body.page-body {
   text-decoration: underline;
 }
 
+.footer-left {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Weiße Trennlinie */
+.footer-logo {
+  padding-right: 0px;
+  margin-right: 0px;
+  border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .logo-area::after {
+    display: none;
+  }
+
+  .footer-logo {
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0;
+  }
+}
+
+
 /* ========== RESPONSIVE / MOBILE ========== */
 
 @media (max-width: 900px) {
@@ -324,18 +371,29 @@ body.page-body {
     padding-top: 80px;
   }
 
+  /* Header-Zeile bleibt IMMER eine Zeile */
   .nav-container {
-    flex-wrap: wrap;
-    height: auto;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    flex-wrap: nowrap;     /* <<< WICHTIG: verhindert Umbruch */
+    height: 70px;          /* bleibt wie Desktop */
+    padding: 8px 16px;
+    position: relative;
   }
 
+  /* Menü wird als Dropdown unter dem Header angezeigt (überlagert Inhalt),
+     ohne die Header-Zeile zu verformen */
   .nav-links {
     display: none;
     flex-direction: column;
+    position: absolute;
+    top: 70px;             /* direkt unter Header */
+    left: 0;
+    right: 0;
     width: 100%;
-    margin-top: 8px;
+    background-color: #004c56;
+    padding: 14px 16px 18px;
+    margin: 0;
+    gap: 18px;
+    z-index: 2000;
   }
 
   .nav-links.show {
@@ -344,6 +402,21 @@ body.page-body {
 
   .nav-toggle {
     display: block;
+    flex: 0 0 auto;
+  }
+
+  /* Flaggen bleiben oben rechts in der Header-Zeile */
+  .language-switcher {
+    flex: 0 0 auto;
+    margin-left: 8px;
+  }
+
+  /* damit der Name nicht alles sprengt */
+  .logo-area span {
+    max-width: 52vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .hero-background {
@@ -383,6 +456,13 @@ body.page-body {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px; /* Handy: entfernt die weiße Lücke */
+  }
+}
+
 
 /* ========== FORMULARE: MITGLIED WERDEN ========== */
 
@@ -940,3 +1020,10 @@ body.page-body {
     }
 }
 
+/* ===== FIX: Mitglied werden – Mobile Überlauf ===== */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
